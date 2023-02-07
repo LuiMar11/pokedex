@@ -5,6 +5,7 @@ const pokeImgContainer = document.querySelector("[data-poke-img-container]");
 const pokeId = document.querySelector("[data-poke-id]");
 const pokeTypes = document.querySelector("[data-poke-types]");
 const pokeStats = document.querySelector("[data-poke-stats]");
+const pokeXp = document.querySelector("[data-poke-xp]");
 
 const typeColors = {
   electric: "#FFEA70",
@@ -42,6 +43,7 @@ const renderPokemonData = (data) => {
   pokeName.textContent = data.name;
   pokeImg.setAttribute("src", sprite);
   pokeId.textContent = `Nº ${data.id}`;
+  pokeXp.textContent = `xp ${data.base_experience}`;
   setCardColor(types);
   renderPokemonTypes(types);
   renderPokemonStats(stats);
@@ -65,6 +67,8 @@ const renderPokemonTypes = (types) => {
     pokeTypes.appendChild(typeTextElement);
   });
 };
+
+
 
 const renderPokemonStats = (stats) => {
   pokeStats.innerHTML = "";
