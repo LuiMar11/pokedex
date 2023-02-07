@@ -5,7 +5,7 @@ const pokeImgContainer = document.querySelector("[data-poke-img-container]");
 const pokeId = document.querySelector("[data-poke-id]");
 const pokeTypes = document.querySelector("[data-poke-types]");
 const pokeStats = document.querySelector("[data-poke-stats]");
-const pokeXp = document.querySelector("[data-poke-xp]");
+const pokedex = document.getElementById("pokedex");
 
 const typeColors = {
   electric: "#FFEA70",
@@ -24,7 +24,9 @@ const typeColors = {
   dragon: "#DA627D",
   steel: "#1D8A99",
   fighting: "#2F2F2F",
-  default: "#2A1A1F",
+  dark: "#707678",
+  fairy: "#D54DEE",
+  default: "#EBF2F4",
 };
 
 const searchPokemon = (event) => {
@@ -37,13 +39,12 @@ const searchPokemon = (event) => {
 };
 
 const renderPokemonData = (data) => {
-  const sprite = data.sprites.front_default;
+  const sprite = data.sprites.other["official-artwork"].front_default;
   const { stats, types } = data;
 
   pokeName.textContent = data.name;
   pokeImg.setAttribute("src", sprite);
   pokeId.textContent = `Nº ${data.id}`;
-  pokeXp.textContent = `xp ${data.base_experience}`;
   setCardColor(types);
   renderPokemonTypes(types);
   renderPokemonStats(stats);
@@ -54,8 +55,8 @@ const setCardColor = (types) => {
   const colorTwo = types[1]
     ? typeColors[types[1].type.name]
     : typeColors.default;
-  pokeImg.style.background = colorOne;
-  pokeImg.style.background = `linear-gradient(to left,${colorOne}, ${colorTwo})`;
+  pokedex.style.background = colorOne;
+  pokedex.style.background = `linear-gradient(to left,${colorOne}, ${colorTwo})`;
 };
 
 const renderPokemonTypes = (types) => {
@@ -67,8 +68,6 @@ const renderPokemonTypes = (types) => {
     pokeTypes.appendChild(typeTextElement);
   });
 };
-
-
 
 const renderPokemonStats = (stats) => {
   pokeStats.innerHTML = "";
