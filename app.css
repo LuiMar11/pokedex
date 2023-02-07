@@ -1,11 +1,10 @@
-const pokemon = {
-    img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
-    imgJuego: data.sprites.front_default,
-    imgCvg: data.sprites.other.dream_world.front_default,
-    nombre: data.name,
-    experiencia: data.base_experience,
-    hp: data.stats[0].base_stat,
-    ataque: data.stats[1].base_stat,
-    defensa: data.stats[2].base_stat,
-    especial: data.stats[3].base_stat,
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+body {
+    font-family: 'Itim', cursive;
+    background : #7F7FD5;
+    background : -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background : linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
 }
+
+
